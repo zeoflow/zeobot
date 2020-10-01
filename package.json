@@ -40,7 +40,7 @@
     "probot-attachments": "github:probot/attachments",
     "probot-config": "^0.1.0",
     "probot-scheduler": "^1.2.0",
-    "regex-parser": "2.2.10",
+    "regex-parser": "2.2.11",
     "request": "^2.72.0",
     "semver": "7.3.2",
     "typescript": "^3.2.2",
