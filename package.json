@@ -36,7 +36,7 @@
     "node-fetch": "^2.6.1",
     "parse-diff": "^0.6.0",
     "pify": "^4.0.1",
-    "probot": "^9.14.1",
+    "probot": "^10.9.0",
     "probot-attachments": "github:probot/attachments",
     "probot-config": "^0.1.0",
     "probot-scheduler": "^1.2.0",
