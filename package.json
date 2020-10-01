@@ -21,7 +21,7 @@
     "async": "^3.0.1",
     "chalk": "^3.0.0",
     "compare-versions": "3.6.0",
-    "compromise": "^11.13.0",
+    "compromise": "^13.5.0",
     "debug": "^4.2.0",
     "email-validator": "^2.0.3",
     "escape-string-regexp": "4.0.0",
