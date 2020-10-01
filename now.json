@@ -1,0 +1,12 @@
+{
+  "name": "ZeoBot",
+  "alias": "zeobot",
+  "env": {
+    "APP_ID": "@app-id",
+    "DISABLE_STATS": "true",
+    "NODE_ENV": "production",
+    "PRIVATE_KEY": "@private-key",
+    "SENTRY_DSN": "@sentry-dsn",
+    "WEBHOOK_SECRET": "@webhook-secret"
+  }
+}
