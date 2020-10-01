@@ -45,7 +45,7 @@
     "semver": "7.3.2",
     "typescript": "^3.2.2",
     "unfurl.js": "^5.1.0",
-    "yargs": "^15.0.1"
+    "yargs": "^16.0.3"
   },
   "devDependencies": {
     "@octokit/rest": "^17.0.0",
