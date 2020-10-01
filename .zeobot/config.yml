@@ -11,7 +11,7 @@ zeobot:
   # zeobot's commands
   commands:
     # if enabled, zeobot will detect commands from comments
-    enabled: false
+    enabled: true
     # write down the users with access to restricted commands
     listen_to:
       users:
