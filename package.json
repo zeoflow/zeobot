@@ -38,7 +38,7 @@
     "pify": "^4.0.1",
     "probot": "^9.14.1",
     "probot-attachments": "github:probot/attachments",
-    "probot-config": "^0.1.0",
+    "probot-config": "^1.1.0",
     "probot-scheduler": "^1.2.0",
     "regex-parser": "2.2.10",
     "request": "^2.72.0",
