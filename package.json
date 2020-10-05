@@ -34,7 +34,7 @@
     "minimatch": "^3.0.4",
     "moment": "2.22.2",
     "node-fetch": "^2.6.1",
-    "parse-diff": "^0.6.0",
+    "parse-diff": "^0.7.1",
     "pify": "^4.0.1",
     "probot": "^9.14.1",
     "probot-attachments": "github:probot/attachments",
