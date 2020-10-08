@@ -76,7 +76,7 @@ class DraftRelease {
             if (pullObject.merged_at) {
                 if (!lastRelease) {
                     pullRequestsList.push(pullObject)
-                } else if (new Date(pullObject.merged_at) >= new Date(lastRelease.created_at)) {
+                } else if (new Date(pullObject.merged_at) > new Date(lastRelease.created_at)) {
                     pullRequestsList.push(pullObject)
                 }
             }
