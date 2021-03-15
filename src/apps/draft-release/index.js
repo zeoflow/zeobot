@@ -1,5 +1,5 @@
 /**
- * Copyright 2020 ZeoFlow SRL
+ * Copyright 2021 ZeoFlow SRL
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -76,7 +76,7 @@ class DraftRelease {
             if (pullObject.merged_at) {
                 if (!lastRelease) {
                     pullRequestsList.push(pullObject)
-                } else if (new Date(pullObject.merged_at) > new Date(lastRelease.created_at)) {
+                } else if (new Date(pullObject.merged_at) > new Date(lastRelease.published_at)) {
                     pullRequestsList.push(pullObject)
                 }
             }
