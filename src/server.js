@@ -36,6 +36,24 @@ process.stdout.write(
     ),
 )
 
+function formatDate(date) {
+    const year = date.getFullYear()
+    const month = (date.getMonth() + 1).toString().length === 1 ? '0' + (date.getMonth() + 1).toString() : (date.getMonth() + 1).toString()
+    const day = (date.getDate()).toString().length === 1 ? '0' + (date.getDate()).toString() : (date.getDate()).toString()
+    const hours = date.getHours()
+    const minutes = date.getMinutes()
+    const seconds = date.getSeconds()
+    return `${day}/${month}/${year} ${hours}:${minutes}:${seconds}`
+}
+
+const aliveSince = formatDate(new Date())
+
+function keepAlive() {
+    console.log(`Alive since: ${aliveSince}. Current time ${formatDate(new Date())}`)
+}
+
+setInterval(keepAlive, 60 * 1000)
+
 module.exports = (robot) => {
     robot.log('Loaded ZeoBot GitHub App')
 
