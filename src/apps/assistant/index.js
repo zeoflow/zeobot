@@ -1,5 +1,5 @@
 /**
- * Copyright 2020 ZeoFlow SRL
+ * Copyright 2021 ZeoFlow SRL
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -192,6 +192,11 @@ class Assistant {
                     .addAutomaticResponse(true)
                     .send()
             }
+            const commentReply = new CommentReply({zParser})
+            commentReply.reply(`Status check requested.`)
+            commentReply
+                .addAutomaticResponse(true)
+                .send()
             let zContributorsCommitsSigned = new ContributorsCommitsSigned({zParser})
             await zContributorsCommitsSigned.run()
             let zLicenseChecker = new LicenseChecker({zParser})
