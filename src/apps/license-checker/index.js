@@ -126,7 +126,7 @@ class LicenseChecker {
 
             if (!this.isAllowedLicense(licenseType, allowedLicenses)) {
                 licenseError = true
-                failureMessages.push(filename + ' is missing a valid license header.')
+                failureMessages.push(filename + ' is missing a valid license header. (please add a license header)')
                 continue
             }
 
@@ -153,6 +153,9 @@ class LicenseChecker {
         if (!licenseError) {
             this.createSuccessfulCheck()
         } else {
+            let copyrightHolders = 'Valid copyright holder(s): '
+            copyrightHolders += allowedCopyrightHolders.join(", ")
+            failureMessages.splice(0, 0, copyrightHolders)
             this.createActionRequiredCheck(failureMessages.join('\n'))
         }
 
