@@ -1,5 +1,5 @@
 /**
- * Copyright 2020 ZeoFlow SRL
+ * Copyright 2021 ZeoFlow SRL
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -48,7 +48,6 @@ class InstallationManager {
             zContextParsed,
         } = zParser
         const {
-            zGithub,
             zPayload,
             zEvent,
             zRepositories,
@@ -128,9 +127,17 @@ class InstallationManager {
                 branchName: mInitializationBranch,
             },
         )
+
         const {
             pullRequestNumber: pull_number,
         } = zPRInstallation
+
+        await zGithub.issues.addLabels({
+            owner: zRepoOwner,
+            issue_number: pull_number,
+            repo: zRepoName,
+            labels: ["@config", "@priority-critical", "@maintenance"]
+        })
 
         const commentReply = new CommentReply({zParser})
         commentReply.reply(`## I've just created the configuration file`)
