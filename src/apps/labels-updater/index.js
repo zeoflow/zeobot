@@ -24,7 +24,9 @@ class LabelsUpdater {
         console.log('LabelsUpdater')
         const zParser = await initialiseContext({zContext})
         const zLabelsUpdater = new LabelsUpdater({zParser})
-        await zLabelsUpdater.run()
+        const {zContextParsed} = zParser
+        const {zRepoOwner, zRepoName} = zContextParsed
+        await zLabelsUpdater.run({zRepoOwner, zRepoName})
     }
 
     static events() {
