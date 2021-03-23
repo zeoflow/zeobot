@@ -143,10 +143,10 @@ draft_release:
       # these labels will influence the next version
       labels:
         - '@security'
-        - '@priority-critical'
-        - '@priority-high'
         - '@feature'
         - '@maintenance'
+        - '@priority-high'
+        - '@priority-critical'
     # patch - version category
     patch:
       # these labels will influence the next version
