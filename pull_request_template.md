@@ -3,4 +3,4 @@
 closes #5346
 ### Description
 
-###### [Contributing](https://github.com/zeoflow/parcelled/blob/master/docs/contributing.md) has more information and tips for a great pull request.
+###### [Contributing](https://github.com/zeoflow/zeobot/blob/master/docs/contributing.md) has more information and tips for a great pull request.
