@@ -72,9 +72,10 @@ class EnforceBranchMerge {
         const branchBlocked = branchesToEnforce.some(rule =>
             new RegExp(`^${rule.split('*').join('.*')}$`).test(branchName),
         )
-        const userBlocked = giveAccessTo.some(rule =>
-            new RegExp(`^${rule.split('*').join('.*')}$`).test(contributorUsername),
-        )
+        // const userBlocked = giveAccessTo.some(rule =>
+        //     new RegExp(`^${rule.split('*').join('.*')}$`).test(contributorUsername),
+        // )
+        const userBlocked = false
 
         if (branchesToEnforce && !userBlocked || !branchBlocked) {
             this.createSuccessfulCheck()
@@ -117,7 +118,7 @@ class EnforceBranchMerge {
 
         const zParser = this.zParser
         const {zConfigFile, zContextParsed} = zParser
-        const {zPullRequest, zSender} = zContextParsed
+        const {zPullRequest} = zContextParsed
         const {zEnforceBranchMerge} = zConfigFile
         const {enabled} = zEnforceBranchMerge
 
@@ -133,7 +134,7 @@ class EnforceBranchMerge {
             name: 'ZeoBot (Enforce Branch Merge)',
             status: 'completed',
             conclusion: 'success',
-            summary: 'You have the right to write to this branch (' + base.ref + ').\n Reason: **forced merging**, requested by @' + zSender.senderLogin,
+            summary: 'You have the right to write to this branch (' + base.ref + ').',
         })
 
     }
