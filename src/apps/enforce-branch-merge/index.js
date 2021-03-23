@@ -72,7 +72,7 @@ class EnforceBranchMerge {
         const branchBlocked = branchesToEnforce.some(rule =>
             new RegExp(`^${rule.split('*').join('.*')}$`).test(branchName),
         )
-        const userBlocked = !giveAccessTo.some(rule =>
+        const userBlocked = giveAccessTo.some(rule =>
             new RegExp(`^${rule.split('*').join('.*')}$`).test(contributorUsername),
         )
 
@@ -88,20 +88,27 @@ class EnforceBranchMerge {
 
         const zParser = this.zParser
         const {zConfigFile, zContextParsed} = zParser
-        const {zSender} = zContextParsed
+        const {zPullRequest, zSender} = zContextParsed
         const {zEnforceBranchMerge} = zConfigFile
-        const {enabled} = zEnforceBranchMerge
+        const {
+            enabled,
+            giveAccessTo,
+        } = zEnforceBranchMerge
 
         if (!enabled) {
             this.createNotEnabledCheck()
             return
         }
+        const {
+            base,
+            head,
+        } = zPullRequest
 
         checksCreate(zParser, {
             name: 'ZeoBot (Enforce Branch Merge)',
             status: 'completed',
             conclusion: 'action_required',
-            summary: 'This branch merge was override. You can not merge this branch.\n Reason: **override**, requested by @' + zSender.senderLogin,
+            summary: 'The merge was blocked due to the protection rules (merge attempt from "' + head.ref + '" to "' + base.ref + '").\n\nPossible solutions: ask one of the contributors who have the right to merge to enforce to help you out (' + giveAccessTo.join(", ") + ').',
         })
 
     }
