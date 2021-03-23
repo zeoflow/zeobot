@@ -1,5 +1,5 @@
 /**
- * Copyright 2020 ZeoFlow SRL
+ * Copyright 2021 ZeoFlow SRL
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,6 +32,7 @@ class AutoAssign {
             'pull_request.opened',
             'pull_request.ready_for_review',
             'pull_request.reopened',
+            'issues.opened',
         ]
     }
 
@@ -60,6 +61,7 @@ class AutoAssign {
         const {
             zGithub,
             zPullRequest,
+            zIssue,
 
             zRepoOwner,
             zRepoName,
@@ -70,17 +72,24 @@ class AutoAssign {
             return
         }
 
+        let zContent = zPullRequest
+        let isPr = true
+        if(zContent == null)
+        {
+            isPr = false
+            zContent = zIssue
+        }
         const owner = zRepoOwner
         const repo = zRepoName
         const {
             title,
             draft,
-        } = zPullRequest
+        } = zContent
 
         if (skipKeywords && this.includesSkipKeywords(title, skipKeywords)) {
             return
         }
-        if (draft) {
+        if (draft && isPr) {
             return
         }
         if (useReviewGroups && !reviewGroups) {
@@ -89,7 +98,7 @@ class AutoAssign {
         if (useAssigneeGroups && !assigneeGroups) {
             return
         }
-        if (addReviewers) {
+        if (addReviewers && isPr) {
             const {reviewers, team_reviewers} = this.chooseReviewers(owner, zAutoAssign)
             if (reviewers.length > 0 || team_reviewers.length > 0) {
                 await pullsCreateReviewRequest(zGithub, {
