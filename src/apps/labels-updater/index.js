@@ -192,6 +192,21 @@ class LabelsUpdater {
             color: 'D01515',
             description: 'This will not be worked on',
         }
+        const labelUI = {
+            name: '@UI',
+            color: '2f99eb',
+            description: '',
+        }
+        const labelConfig = {
+            name: '@config',
+            color: '275400',
+            description: '',
+        }
+        const labelEnvironment = {
+            name: '@environment',
+            color: '275400',
+            description: '',
+        }
 
         const zeobotLabels = [
             //zeobot labels
@@ -220,6 +235,9 @@ class LabelsUpdater {
             labelInvalid,
             labelQuestion,
             labelWontfix,
+            labelUI,
+            labelConfig,
+            labelEnvironment
         ]
 
         const zParser = this.zParser
